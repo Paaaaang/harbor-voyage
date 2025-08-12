@@ -4,7 +4,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Anchor, Compass } from 'lucide-react'
 
-import { useTheme } from '../ThemeProvider'
+import { useTheme } from '@/components/ThemeProvider'
 
 const Hero = () => {
   const { theme } = useTheme()

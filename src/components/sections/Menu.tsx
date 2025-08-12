@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 
-import { useTheme } from '../ThemeProvider'
+import { useTheme } from '@/components/ThemeProvider'
 
 const Menu = () => {
   const { theme } = useTheme()

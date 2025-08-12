@@ -2,11 +2,12 @@
 
 import React, { useState, useEffect } from 'react'
 import { Sun, Moon, Menu, X } from 'lucide-react'
+import { useTheme } from '@/components/ThemeProvider'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const [theme, setTheme] = useState('light')
+  const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,12 +16,6 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light'
-    setTheme(newTheme)
-    document.documentElement.classList.toggle('dark')
-  }
 
   const navItems = [
     { name: 'Home', href: '#hero' },
