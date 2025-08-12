@@ -3,9 +3,10 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 
+import { useTheme } from '../ThemeProvider'
+
 const Menu = () => {
-  // 임시로 하드코딩
-  const theme = 'light'
+  const { theme } = useTheme()
   const [activeTab, setActiveTab] = useState<'day' | 'night'>('day')
 
   const dayMenu = [
