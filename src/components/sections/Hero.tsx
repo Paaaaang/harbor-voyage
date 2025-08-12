@@ -4,9 +4,10 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Anchor, Compass } from 'lucide-react'
 
+import { useTheme } from '../ThemeProvider'
+
 const Hero = () => {
-  // 임시로 하드코딩 (아까 정상 작동했던 방식)
-  const theme = 'light'
+  const { theme } = useTheme()
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
