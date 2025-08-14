@@ -1,68 +1,70 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
-import { motion } from 'framer-motion'
-import { Calendar, Clock, Users, MapPin } from 'lucide-react'
-import DatePicker from 'react-datepicker'
-import 'react-datepicker/dist/react-datepicker.css'
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Calendar, Clock, Users, MapPin } from "lucide-react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const Events = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    event: '',
+    name: "",
+    email: "",
+    phone: "",
+    event: "",
     date: null as Date | null,
-    guests: ''
-  })
+    guests: "",
+  });
 
   const events = [
     {
-      id: 'sunset-hour',
-      title: 'Sunset Happy Hour',
-      time: '17:00 - 19:00',
-      description: '일몰과 함께 즐기는 특별한 칵테일 할인 시간',
-      image: '🌅',
-      color: 'from-orange-400 to-pink-500'
+      id: "sunset-hour",
+      title: "Sunset Happy Hour",
+      time: "17:00 - 19:00",
+      description: "일몰과 함께 즐기는 특별한 칵테일 할인 시간",
+      image: "🌅",
+      color: "from-orange-400 to-pink-500",
     },
     {
-      id: 'jazz-night',
-      title: 'Weekend Jazz Night',
-      time: '20:00 - 23:00',
-      description: '매주 토요일, 라이브 재즈와 함께하는 특별한 밤',
-      image: '🎷',
-      color: 'from-indigo-400 to-purple-500'
+      id: "jazz-night",
+      title: "Weekend Jazz Night",
+      time: "20:00 - 23:00",
+      description: "매주 토요일, 라이브 재즈와 함께하는 특별한 밤",
+      image: "🎷",
+      color: "from-indigo-400 to-purple-500",
     },
     {
-      id: 'rum-tasting',
-      title: 'Captain\'s Rum Tasting',
-      time: '19:00 - 21:00',
-      description: '월 1회, 세계 각국의 프리미엄 럼 테이스팅',
-      image: '🥃',
-      color: 'from-amber-500 to-orange-600'
-    }
-  ]
+      id: "rum-tasting",
+      title: "Captain's Rum Tasting",
+      time: "19:00 - 21:00",
+      description: "월 1회, 세계 각국의 프리미엄 럼 테이스팅",
+      image: "🥃",
+      color: "from-amber-500 to-orange-600",
+    },
+  ];
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleDateChange = (date: Date | null) => {
     setFormData({
       ...formData,
-      date
-    })
-  }
+      date,
+    });
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     // Handle form submission here
-    console.log('Form submitted:', formData)
-    alert('예약 요청이 전송되었습니다!')
-  }
+    console.log("Form submitted:", formData);
+    alert("예약 요청이 전송되었습니다!");
+  };
 
   return (
     <section id="events" className="py-20 px-4">
@@ -93,7 +95,7 @@ const Events = () => {
             <h3 className="font-serif text-2xl font-semibold text-light-text dark:text-dark-text mb-8">
               정기 이벤트
             </h3>
-            
+
             <div className="space-y-6">
               {events.map((event, index) => (
                 <motion.div
@@ -105,20 +107,24 @@ const Events = () => {
                   className="bg-light-bg-secondary/50 dark:bg-dark-bg-secondary/50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-light-primary/10 dark:border-dark-primary/10"
                 >
                   <div className="flex items-start space-x-4">
-                    <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${event.color} flex items-center justify-center text-2xl shadow-lg`}>
+                    <div
+                      className={`w-16 h-16 rounded-full bg-gradient-to-br ${event.color} flex items-center justify-center text-2xl shadow-lg`}
+                    >
                       {event.image}
                     </div>
-                    
+
                     <div className="flex-1">
                       <h4 className="font-serif text-xl font-semibold text-light-text dark:text-dark-text mb-2">
                         {event.title}
                       </h4>
-                      
+
                       <div className="flex items-center text-light-primary dark:text-dark-primary mb-3">
                         <Clock className="w-4 h-4 mr-2" />
-                        <span className="text-sm font-medium">{event.time}</span>
+                        <span className="text-sm font-medium">
+                          {event.time}
+                        </span>
                       </div>
-                      
+
                       <p className="text-light-text/70 dark:text-dark-text/70">
                         {event.description}
                       </p>
@@ -139,8 +145,11 @@ const Events = () => {
             <h3 className="font-serif text-2xl font-semibold text-light-text dark:text-dark-text mb-8">
               예약하기
             </h3>
-            
-            <form onSubmit={handleSubmit} className="bg-gradient-to-br from-light-bg-secondary/30 to-light-bg/80 dark:from-dark-bg-secondary/30 dark:to-dark-bg/80 rounded-2xl p-8 shadow-xl border border-light-primary/20 dark:border-dark-primary/20 backdrop-blur-sm">
+
+            <form
+              onSubmit={handleSubmit}
+              className="bg-gradient-to-br from-light-bg-secondary/30 to-light-bg/80 dark:from-dark-bg-secondary/30 dark:to-dark-bg/80 rounded-2xl p-8 shadow-xl border border-light-primary/20 dark:border-dark-primary/20 backdrop-blur-sm"
+            >
               <div className="space-y-6">
                 <div>
                   <label className="block text-light-text dark:text-dark-text font-medium mb-2">
@@ -256,7 +265,7 @@ const Events = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Events
+export default Events;

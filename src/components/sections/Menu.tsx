@@ -17,7 +17,7 @@ const Menu = () => {
   }, []); // 빈 배열로 마운트 시에만 실행
 
   const handleToggle = () => {
-    setActiveTab(prev => prev === "day" ? "night" : "day");
+    setActiveTab((prev) => (prev === "day" ? "night" : "day"));
   };
 
   const dayMenu = [
@@ -131,7 +131,7 @@ const Menu = () => {
 
         {/* Tab Navigation - 토글 버튼 */}
         <div className="flex justify-center mb-12">
-          <button 
+          <button
             onClick={handleToggle}
             className="relative bg-light-bg dark:bg-dark-bg rounded-full p-1 flex cursor-pointer hover:scale-105 transition-transform duration-200"
           >
@@ -140,21 +140,29 @@ const Menu = () => {
               className="absolute top-1 bottom-1 bg-light-primary dark:bg-dark-primary rounded-full shadow-lg"
               style={{ width: "50%" }}
               animate={{
-                x: activeTab === "day" ? "0%" : "100%"
+                x: activeTab === "day" ? "0%" : "100%",
               }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
             />
 
             {/* 메뉴 표시 영역 */}
             <div className="relative z-10 flex">
-              <div className={`px-8 py-3 rounded-full font-medium transition-colors duration-300 ${
-                activeTab === "day" ? "text-white" : "text-light-text/60 dark:text-dark-text/60"
-              }`}>
+              <div
+                className={`px-8 py-3 rounded-full font-medium transition-colors duration-300 ${
+                  activeTab === "day"
+                    ? "text-white"
+                    : "text-light-text/60 dark:text-dark-text/60"
+                }`}
+              >
                 ☀️ 낮 메뉴
               </div>
-              <div className={`px-8 py-3 rounded-full font-medium transition-colors duration-300 ${
-                activeTab === "night" ? "text-white" : "text-light-text/60 dark:text-dark-text/60"
-              }`}>
+              <div
+                className={`px-8 py-3 rounded-full font-medium transition-colors duration-300 ${
+                  activeTab === "night"
+                    ? "text-white"
+                    : "text-light-text/60 dark:text-dark-text/60"
+                }`}
+              >
                 🌙 밤 메뉴
               </div>
             </div>

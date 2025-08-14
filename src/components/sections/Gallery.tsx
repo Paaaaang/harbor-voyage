@@ -1,42 +1,46 @@
-'use client'
+"use client";
 
-import React from 'react'
-import { motion } from 'framer-motion'
+import React from "react";
+import { motion } from "framer-motion";
 
 const Gallery = () => {
   const galleryImages = [
     {
       id: 1,
-      dayImage: '/gallery/day-1.jpg',
-      nightImage: '/gallery/night-1.jpg',
-      alt: 'SPARROW 메인 홀',
-      description: '낮에는 따뜻한 햇살이 비치는 카페, 밤에는 은은한 조명이 아름다운 펍'
+      dayImage: "/gallery/day-1.jpg",
+      nightImage: "/gallery/night-1.jpg",
+      alt: "SPARROW 메인 홀",
+      description:
+        "낮에는 따뜻한 햇살이 비치는 카페, 밤에는 은은한 조명이 아름다운 펍",
     },
     {
       id: 2,
-      dayImage: '/gallery/day-2.jpg',
-      nightImage: '/gallery/night-2.jpg',
-      alt: '바 카운터',
-      description: '항구의 선원들이 모이는 바 카운터'
+      dayImage: "/gallery/day-2.jpg",
+      nightImage: "/gallery/night-2.jpg",
+      alt: "바 카운터",
+      description: "항구의 선원들이 모이는 바 카운터",
     },
     {
       id: 3,
-      dayImage: '/gallery/day-3.jpg',
-      nightImage: '/gallery/night-3.jpg',
-      alt: '테라스 좌석',
-      description: '바다를 바라보며 즐기는 특별한 시간'
+      dayImage: "/gallery/day-3.jpg",
+      nightImage: "/gallery/night-3.jpg",
+      alt: "테라스 좌석",
+      description: "바다를 바라보며 즐기는 특별한 시간",
     },
     {
       id: 4,
-      dayImage: '/gallery/day-4.jpg',
-      nightImage: '/gallery/night-4.jpg',
-      alt: '프라이빗 룸',
-      description: '특별한 모임을 위한 프라이빗 공간'
-    }
-  ]
+      dayImage: "/gallery/day-4.jpg",
+      nightImage: "/gallery/night-4.jpg",
+      alt: "프라이빗 룸",
+      description: "특별한 모임을 위한 프라이빗 공간",
+    },
+  ];
 
   return (
-    <section id="gallery" className="py-20 px-4 bg-light-bg-secondary/30 dark:bg-dark-bg-secondary/30">
+    <section
+      id="gallery"
+      className="py-20 px-4 bg-light-bg-secondary/30 dark:bg-dark-bg-secondary/30"
+    >
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -70,7 +74,9 @@ const Gallery = () => {
                   <div className="w-full h-full flex items-center justify-center">
                     <div className="text-center text-white">
                       <div className="text-6xl mb-4">☀️</div>
-                      <h4 className="font-serif text-xl font-semibold mb-2">Day Mode</h4>
+                      <h4 className="font-serif text-xl font-semibold mb-2">
+                        Day Mode
+                      </h4>
                       <p className="text-sm opacity-90">06:00 - 18:00</p>
                     </div>
                   </div>
@@ -81,7 +87,9 @@ const Gallery = () => {
                   <div className="w-full h-full flex items-center justify-center">
                     <div className="text-center text-white">
                       <div className="text-6xl mb-4">🌙</div>
-                      <h4 className="font-serif text-xl font-semibold mb-2">Night Mode</h4>
+                      <h4 className="font-serif text-xl font-semibold mb-2">
+                        Night Mode
+                      </h4>
                       <p className="text-sm opacity-90">18:00 - 02:00</p>
                     </div>
                   </div>
@@ -93,9 +101,7 @@ const Gallery = () => {
                 <h3 className="font-serif text-xl font-semibold text-white mb-2">
                   {image.alt}
                 </h3>
-                <p className="text-white/90 text-sm">
-                  {image.description}
-                </p>
+                <p className="text-white/90 text-sm">{image.description}</p>
               </div>
 
               {/* Hover Effect Indicator */}
@@ -117,14 +123,18 @@ const Gallery = () => {
           <h3 className="font-serif text-2xl font-semibold text-light-text dark:text-dark-text text-center mb-8">
             Day & Night Transformation
           </h3>
-          
+
           <div className="relative aspect-video rounded-xl overflow-hidden bg-gradient-to-r from-light-secondary via-light-primary to-light-secondary dark:from-dark-secondary dark:via-dark-primary dark:to-dark-secondary">
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center text-white">
                 <div className="text-8xl mb-6">🏛️</div>
                 <h4 className="font-serif text-3xl font-bold mb-4">SPARROW</h4>
-                <p className="text-lg opacity-90">Interactive gallery coming soon...</p>
-                <p className="text-sm opacity-75 mt-2">Experience the magical transformation from day to night</p>
+                <p className="text-lg opacity-90">
+                  Interactive gallery coming soon...
+                </p>
+                <p className="text-sm opacity-75 mt-2">
+                  Experience the magical transformation from day to night
+                </p>
               </div>
             </div>
           </div>
@@ -147,7 +157,7 @@ const Gallery = () => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Gallery
+export default Gallery;
