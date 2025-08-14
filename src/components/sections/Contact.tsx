@@ -1,8 +1,29 @@
-'use client'
+"use client";
 
-import React from 'react'
-import { motion } from 'framer-motion'
-import { MapPin, Clock, Phone, Mail, Instagram, MessageCircle } from 'lucide-react'
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  MapPin,
+  Clock,
+  Phone,
+  Mail,
+  Instagram,
+  MessageCircle,
+} from "lucide-react";
+import dynamic from "next/dynamic";
+
+// 카카오 맵을 동적으로 import (SSR 방지)
+const KakaoMap = dynamic(() => import("@/components/KakaoMap"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-80 rounded-xl bg-gradient-to-br from-light-secondary to-light-primary dark:from-dark-secondary dark:to-dark-primary flex items-center justify-center">
+      <div className="text-center text-white">
+        <div className="text-4xl mb-2">🗺️</div>
+        <p>지도를 불러오는 중...</p>
+      </div>
+    </div>
+  ),
+});
 
 const Contact = () => {
   return (
@@ -19,7 +40,7 @@ const Contact = () => {
             Contact & Location
           </h2>
           <p className="text-lg text-light-text/80 dark:text-dark-text/80 max-w-3xl mx-auto">
-            Harbor & Voyage로 오시는 길과 연락처 정보
+            SPARROW로 오시는 길과 연락처 정보
           </p>
         </motion.div>
 
@@ -36,17 +57,20 @@ const Contact = () => {
               <h3 className="font-serif text-2xl font-semibold text-light-text dark:text-dark-text mb-6">
                 찾아오시는 길
               </h3>
-              
+
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-light-primary/20 dark:bg-dark-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-6 h-6 text-light-primary dark:text-dark-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-light-text dark:text-dark-text mb-2">주소</h4>
+                    <h4 className="font-semibold text-light-text dark:text-dark-text mb-2">
+                      주소
+                    </h4>
                     <p className="text-light-text/80 dark:text-dark-text/80">
-                      서울특별시 중구 을지로 100<br />
-                      Harbor & Voyage Building 1F
+                      서울특별시 중구 을지로 100번지
+                      <br />
+                      SPARROW Building 1F
                     </p>
                   </div>
                 </div>
@@ -56,11 +80,21 @@ const Contact = () => {
                     <Clock className="w-6 h-6 text-light-primary dark:text-dark-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-light-text dark:text-dark-text mb-2">운영시간</h4>
+                    <h4 className="font-semibold text-light-text dark:text-dark-text mb-2">
+                      운영시간
+                    </h4>
                     <div className="space-y-1 text-light-text/80 dark:text-dark-text/80">
-                      <p><span className="font-medium">카페 (Day Mode)</span> : 06:00 - 18:00</p>
-                      <p><span className="font-medium">펍 (Night Mode)</span> : 18:00 - 02:00</p>
-                      <p className="text-sm text-light-primary dark:text-dark-primary">연중무휴</p>
+                      <p>
+                        <span className="font-medium">카페 (Day Mode)</span> :
+                        06:00 - 18:00
+                      </p>
+                      <p>
+                        <span className="font-medium">펍 (Night Mode)</span> :
+                        18:00 - 02:00
+                      </p>
+                      <p className="text-sm text-light-primary dark:text-dark-primary">
+                        연중무휴
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -70,7 +104,9 @@ const Contact = () => {
                     <Phone className="w-6 h-6 text-light-primary dark:text-dark-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-light-text dark:text-dark-text mb-2">연락처</h4>
+                    <h4 className="font-semibold text-light-text dark:text-dark-text mb-2">
+                      연락처
+                    </h4>
                     <p className="text-light-text/80 dark:text-dark-text/80">
                       02-1234-5678
                     </p>
@@ -82,9 +118,11 @@ const Contact = () => {
                     <Mail className="w-6 h-6 text-light-primary dark:text-dark-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-light-text dark:text-dark-text mb-2">이메일</h4>
+                    <h4 className="font-semibold text-light-text dark:text-dark-text mb-2">
+                      이메일
+                    </h4>
                     <p className="text-light-text/80 dark:text-dark-text/80">
-                      hello@harborvoyage.kr
+                      hello@wavetocafe.kr
                     </p>
                   </div>
                 </div>
@@ -96,7 +134,7 @@ const Contact = () => {
               <h3 className="font-serif text-2xl font-semibold text-light-text dark:text-dark-text mb-6">
                 소셜 미디어
               </h3>
-              
+
               <div className="flex space-x-4">
                 <a
                   href="#"
@@ -125,28 +163,36 @@ const Contact = () => {
             <h3 className="font-serif text-2xl font-semibold text-light-text dark:text-dark-text mb-6 text-center">
               위치
             </h3>
-            
-            {/* Map Placeholder */}
-            <div className="aspect-square rounded-xl bg-gradient-to-br from-light-secondary to-light-primary dark:from-dark-secondary dark:to-dark-primary flex items-center justify-center">
-              <div className="text-center text-white">
-                <div className="text-6xl mb-4">🗺️</div>
-                <h4 className="font-serif text-xl font-semibold mb-2">카카오맵 연동</h4>
-                <p className="text-sm opacity-90">
-                  정확한 위치와 경로를 확인하세요
-                </p>
-                <button className="mt-4 px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium hover:bg-white/30 transition-colors">
-                  지도에서 보기
-                </button>
-              </div>
+
+            {/* Kakao Map */}
+            <div className="mb-6">
+              <KakaoMap />
             </div>
 
             {/* Transportation */}
-            <div className="mt-6 space-y-3">
-              <h4 className="font-semibold text-light-text dark:text-dark-text">교통편</h4>
+            <div className="space-y-3">
+              <h4 className="font-semibold text-light-text dark:text-dark-text">
+                교통편
+              </h4>
               <div className="space-y-2 text-sm text-light-text/80 dark:text-dark-text/80">
-                <p><span className="font-medium text-light-primary dark:text-dark-primary">지하철</span> : 2호선 을지로입구역 3번 출구 (도보 5분)</p>
-                <p><span className="font-medium text-light-primary dark:text-dark-primary">버스</span> : 100, 150, 201, 202번 (을지로 정류장)</p>
-                <p><span className="font-medium text-light-primary dark:text-dark-primary">주차</span> : 건물 지하 주차장 이용 가능 (2시간 무료)</p>
+                <p>
+                  <span className="font-medium text-light-primary dark:text-dark-primary">
+                    지하철
+                  </span>{" "}
+                  : 2호선 을지로입구역 3번 출구 (도보 5분)
+                </p>
+                <p>
+                  <span className="font-medium text-light-primary dark:text-dark-primary">
+                    버스
+                  </span>{" "}
+                  : 100, 150, 201, 202번 (을지로 정류장)
+                </p>
+                <p>
+                  <span className="font-medium text-light-primary dark:text-dark-primary">
+                    주차
+                  </span>{" "}
+                  : 건물 지하 주차장 이용 가능 (2시간 무료)
+                </p>
               </div>
             </div>
           </motion.div>
@@ -161,10 +207,10 @@ const Contact = () => {
           className="text-center mt-16 bg-light-bg-secondary/30 dark:bg-dark-bg-secondary/30 rounded-2xl p-8"
         >
           <h3 className="font-serif text-2xl font-semibold text-light-text dark:text-dark-text mb-4">
-            하루가 두 번 시작되는 곳에서 만나요
+            SPARROW에서 특별한 시간을 만나보세요
           </h3>
           <p className="text-light-text/80 dark:text-dark-text/80 mb-6">
-            바다의 이야기와 함께하는 특별한 경험이 기다리고 있습니다
+            시간에 따라 변화하는 공간에서 새로운 경험이 기다리고 있습니다
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="px-8 py-4 bg-light-primary dark:bg-dark-primary text-white font-semibold rounded-full hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg">
@@ -177,7 +223,7 @@ const Contact = () => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

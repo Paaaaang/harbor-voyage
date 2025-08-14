@@ -1,22 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap');
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --color-bg-light: #FDFCF7;
-  --color-bg-secondary-light: #B5EAEA;
-  --color-text-light: #3E3E3E;
-  --color-primary-light: #A3B18A;
-  --color-secondary-light: #E9D8A6;
-  
-  --color-bg-dark: #0D1B2A;
-  --color-bg-secondary-dark: #1B263B;
-  --color-text-dark: #FFFFFF;
-  --color-text-amber-dark: #E0A96D;
-  --color-primary-dark: #FFD166;
-  --color-secondary-dark: #3BB4C1;
+  --color-bg-light: #fdfcf7;
+  --color-bg-secondary-light: #b5eaea;
+  --color-text-light: #3e3e3e;
+  --color-primary-light: #a3b18a;
+  --color-secondary-light: #e9d8a6;
+
+  --color-bg-dark: #0d1b2a;
+  --color-bg-secondary-dark: #1b263b;
+  --color-text-dark: #ffffff;
+  --color-text-amber-dark: #e0a96d;
+  --color-primary-dark: #ffd166;
+  --color-secondary-dark: #3bb4c1;
 }
 
 * {
@@ -32,8 +34,9 @@ body {
 }
 
 body {
-  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-family: "Inter", "Noto Sans KR", sans-serif;
   transition: background-color 0.8s ease, color 0.8s ease;
+  cursor: none; /* 기본 커서 숨기기 */
 }
 
 a {
@@ -43,7 +46,8 @@ a {
 
 /* Theme transitions */
 * {
-  transition: background-color 0.8s ease, color 0.8s ease, border-color 0.8s ease;
+  transition: background-color 0.8s ease, color 0.8s ease,
+    border-color 0.8s ease;
 }
 
 /* Smooth scroll */
@@ -61,22 +65,209 @@ html {
 }
 
 .dark ::-webkit-scrollbar-track {
-  background: #1B263B;
+  background: #1b263b;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #A3B18A;
+  background: #a3b18a;
   border-radius: 4px;
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #FFD166;
+  background: #ffd166;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #E9D8A6;
+  background: #e9d8a6;
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: #3BB4C1;
+  background: #3bb4c1;
+}
+
+/* 커스텀 커서 스타일 */
+.custom-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(163, 177, 138, 0.8);
+  pointer-events: none;
+  z-index: 9999;
+  transition: all 0.2s ease;
+  mix-blend-mode: difference;
+}
+
+.dark .custom-cursor {
+  background: rgba(255, 209, 102, 0.8);
+}
+
+.custom-cursor.hover {
+  transform: scale(2);
+  background: rgba(163, 177, 138, 0.4);
+}
+
+.dark .custom-cursor.hover {
+  background: rgba(255, 209, 102, 0.4);
+}
+
+/* 폰트 계층 구조 */
+h1,
+h2,
+h3 {
+  font-family: "Poppins", "Noto Sans KR", sans-serif;
+}
+
+.font-display {
+  font-family: "Poppins", "Noto Sans KR", sans-serif;
+}
+
+.font-body {
+  font-family: "Inter", "Noto Sans KR", sans-serif;
+}
+
+/* React DatePicker 커스텀 스타일 */
+.react-datepicker {
+  font-family: "Inter", "Noto Sans KR", sans-serif !important;
+  border: none !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+.react-datepicker__header {
+  background-color: #E07A5F !important;
+  border-bottom: none !important;
+  border-top-left-radius: 12px !important;
+  border-top-right-radius: 12px !important;
+  padding: 16px !important;
+}
+
+.react-datepicker__current-month {
+  color: white !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+}
+
+.react-datepicker__navigation {
+  top: 20px !important;
+}
+
+.react-datepicker__navigation--previous {
+  left: 16px !important;
+}
+
+.react-datepicker__navigation--next {
+  right: 16px !important;
+}
+
+.react-datepicker__navigation-icon::before {
+  border-color: white !important;
+}
+
+.react-datepicker__day-names {
+  background-color: #FFF4E6 !important;
+  margin-bottom: 0 !important;
+}
+
+.react-datepicker__day-name {
+  color: #4A4A4A !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+}
+
+.react-datepicker__month {
+  margin: 0 !important;
+  padding: 16px !important;
+  background-color: #FFFEF9 !important;
+}
+
+.react-datepicker__day {
+  color: #4A4A4A !important;
+  border-radius: 8px !important;
+  width: 32px !important;
+  height: 32px !important;
+  line-height: 32px !important;
+  margin: 2px !important;
+  transition: all 0.2s ease !important;
+}
+
+.react-datepicker__day:hover {
+  background-color: #F2CC8F !important;
+  color: white !important;
+}
+
+.react-datepicker__day--selected {
+  background-color: #E07A5F !important;
+  color: white !important;
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: #F2CC8F !important;
+  color: white !important;
+}
+
+.react-datepicker__day--today {
+  background-color: #FFF4E6 !important;
+  font-weight: 600 !important;
+  border: 2px solid #E07A5F !important;
+}
+
+.react-datepicker__day--disabled {
+  color: #ccc !important;
+  cursor: not-allowed !important;
+}
+
+.react-datepicker__day--disabled:hover {
+  background-color: transparent !important;
+}
+
+/* 다크 모드 DatePicker 스타일 */
+.dark .react-datepicker {
+  background-color: #1B263B !important;
+}
+
+.dark .react-datepicker__header {
+  background-color: #FFD166 !important;
+}
+
+.dark .react-datepicker__current-month {
+  color: #0D1B2A !important;
+}
+
+.dark .react-datepicker__navigation-icon::before {
+  border-color: #0D1B2A !important;
+}
+
+.dark .react-datepicker__day-names {
+  background-color: #0D1B2A !important;
+}
+
+.dark .react-datepicker__day-name {
+  color: #FFFFFF !important;
+}
+
+.dark .react-datepicker__month {
+  background-color: #1B263B !important;
+}
+
+.dark .react-datepicker__day {
+  color: #FFFFFF !important;
+}
+
+.dark .react-datepicker__day:hover {
+  background-color: #3BB4C1 !important;
+}
+
+.dark .react-datepicker__day--selected {
+  background-color: #FFD166 !important;
+  color: #0D1B2A !important;
+}
+
+.dark .react-datepicker__day--keyboard-selected {
+  background-color: #3BB4C1 !important;
+}
+
+.dark .react-datepicker__day--today {
+  background-color: #1B263B !important;
+  border: 2px solid #FFD166 !important;
 }

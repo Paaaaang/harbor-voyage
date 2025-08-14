@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 import { useTheme } from "@/components/ThemeProvider";
@@ -8,6 +8,17 @@ import { useTheme } from "@/components/ThemeProvider";
 const Menu = () => {
   const { theme } = useTheme();
   const [activeTab, setActiveTab] = useState<"day" | "night">("day");
+
+  // 테마 변경 시 초기값만 설정 (자동 전환 제거)
+  useEffect(() => {
+    // 컴포넌트 마운트 시에만 테마에 따라 초기값 설정
+    const initialTab = theme === "dark" ? "night" : "day";
+    setActiveTab(initialTab);
+  }, []); // 빈 배열로 마운트 시에만 실행
+
+  const handleToggle = () => {
+    setActiveTab(prev => prev === "day" ? "night" : "day");
+  };
 
   const dayMenu = [
     {
@@ -118,30 +129,36 @@ const Menu = () => {
           </p>
         </motion.div>
 
-        {/* Tab Navigation */}
+        {/* Tab Navigation - 토글 버튼 */}
         <div className="flex justify-center mb-12">
-          <div className="bg-light-bg dark:bg-dark-bg rounded-full p-2 flex">
-            <button
-              onClick={() => setActiveTab("day")}
-              className={`px-8 py-3 rounded-full font-semibold transition-all duration-300 ${
-                activeTab === "day" || theme === "light"
-                  ? "bg-light-primary text-white shadow-lg"
-                  : "text-light-text dark:text-dark-text hover:bg-light-secondary/20 dark:hover:bg-dark-secondary/20"
-              }`}
-            >
-              낮 메뉴 (Day)
-            </button>
-            <button
-              onClick={() => setActiveTab("night")}
-              className={`px-8 py-3 rounded-full font-semibold transition-all duration-300 ${
-                activeTab === "night" || theme === "dark"
-                  ? "bg-dark-primary text-dark-bg shadow-lg"
-                  : "text-light-text dark:text-dark-text hover:bg-light-secondary/20 dark:hover:bg-dark-secondary/20"
-              }`}
-            >
-              밤 메뉴 (Night)
-            </button>
-          </div>
+          <button 
+            onClick={handleToggle}
+            className="relative bg-light-bg dark:bg-dark-bg rounded-full p-1 flex cursor-pointer hover:scale-105 transition-transform duration-200"
+          >
+            {/* 슬라이드 배경 */}
+            <motion.div
+              className="absolute top-1 bottom-1 bg-light-primary dark:bg-dark-primary rounded-full shadow-lg"
+              style={{ width: "50%" }}
+              animate={{
+                x: activeTab === "day" ? "0%" : "100%"
+              }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            />
+
+            {/* 메뉴 표시 영역 */}
+            <div className="relative z-10 flex">
+              <div className={`px-8 py-3 rounded-full font-medium transition-colors duration-300 ${
+                activeTab === "day" ? "text-white" : "text-light-text/60 dark:text-dark-text/60"
+              }`}>
+                ☀️ 낮 메뉴
+              </div>
+              <div className={`px-8 py-3 rounded-full font-medium transition-colors duration-300 ${
+                activeTab === "night" ? "text-white" : "text-light-text/60 dark:text-dark-text/60"
+              }`}>
+                🌙 밤 메뉴
+              </div>
+            </div>
+          </button>
         </div>
 
         {/* Menu Content */}
@@ -182,11 +199,11 @@ const Menu = () => {
                       <h4 className="font-semibold text-light-text dark:text-dark-text text-lg">
                         {item.name}
                       </h4>
-                      <span className="font-bold text-light-primary dark:text-dark-primary">
+                      <span className="font-semibold text-light-primary dark:text-dark-primary text-lg">
                         ₩{item.price}
                       </span>
                     </div>
-                    <p className="text-light-text/70 dark:text-dark-text/70">
+                    <p className="text-light-text/70 dark:text-dark-text/70 text-base">
                       {item.description}
                     </p>
                   </motion.div>

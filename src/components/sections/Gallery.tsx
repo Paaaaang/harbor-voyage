@@ -9,7 +9,7 @@ const Gallery = () => {
       id: 1,
       dayImage: '/gallery/day-1.jpg',
       nightImage: '/gallery/night-1.jpg',
-      alt: 'Harbor & Voyage 메인 홀',
+      alt: 'SPARROW 메인 홀',
       description: '낮에는 따뜻한 햇살이 비치는 카페, 밤에는 은은한 조명이 아름다운 펍'
     },
     {
@@ -49,7 +49,7 @@ const Gallery = () => {
             Gallery
           </h2>
           <p className="text-lg text-light-text/80 dark:text-dark-text/80 max-w-3xl mx-auto">
-            낮과 밤, 두 개의 서로 다른 분위기를 가진 Harbor & Voyage의 모습들
+            낮과 밤, 두 개의 서로 다른 분위기를 가진 SPARROW의 모습들
           </p>
         </motion.div>
 
@@ -122,7 +122,7 @@ const Gallery = () => {
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center text-white">
                 <div className="text-8xl mb-6">🏛️</div>
-                <h4 className="font-serif text-3xl font-bold mb-4">Harbor & Voyage</h4>
+                <h4 className="font-serif text-3xl font-bold mb-4">SPARROW</h4>
                 <p className="text-lg opacity-90">Interactive gallery coming soon...</p>
                 <p className="text-sm opacity-75 mt-2">Experience the magical transformation from day to night</p>
               </div>

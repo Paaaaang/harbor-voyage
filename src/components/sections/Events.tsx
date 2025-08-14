@@ -3,6 +3,8 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Calendar, Clock, Users, MapPin } from 'lucide-react'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 
 const Events = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +12,7 @@ const Events = () => {
     email: '',
     phone: '',
     event: '',
-    date: '',
+    date: null as Date | null,
     guests: ''
   })
 
@@ -21,7 +23,7 @@ const Events = () => {
       time: '17:00 - 19:00',
       description: '일몰과 함께 즐기는 특별한 칵테일 할인 시간',
       image: '🌅',
-      color: 'from-orange-400 to-red-500'
+      color: 'from-orange-400 to-pink-500'
     },
     {
       id: 'jazz-night',
@@ -29,7 +31,7 @@ const Events = () => {
       time: '20:00 - 23:00',
       description: '매주 토요일, 라이브 재즈와 함께하는 특별한 밤',
       image: '🎷',
-      color: 'from-purple-400 to-blue-500'
+      color: 'from-indigo-400 to-purple-500'
     },
     {
       id: 'rum-tasting',
@@ -37,7 +39,7 @@ const Events = () => {
       time: '19:00 - 21:00',
       description: '월 1회, 세계 각국의 프리미엄 럼 테이스팅',
       image: '🥃',
-      color: 'from-amber-400 to-orange-500'
+      color: 'from-amber-500 to-orange-600'
     }
   ]
 
@@ -45,6 +47,13 @@ const Events = () => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
+    })
+  }
+
+  const handleDateChange = (date: Date | null) => {
+    setFormData({
+      ...formData,
+      date
     })
   }
 
@@ -69,7 +78,7 @@ const Events = () => {
             Events & Reservation
           </h2>
           <p className="text-lg text-light-text/80 dark:text-dark-text/80 max-w-3xl mx-auto">
-            특별한 순간을 만들어드리는 Harbor & Voyage의 이벤트와 예약
+            특별한 순간을 만들어드리는 SPARROW의 이벤트와 예약
           </p>
         </motion.div>
 
@@ -93,7 +102,7 @@ const Events = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-light-bg dark:bg-dark-bg rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                  className="bg-light-bg-secondary/50 dark:bg-dark-bg-secondary/50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-light-primary/10 dark:border-dark-primary/10"
                 >
                   <div className="flex items-start space-x-4">
                     <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${event.color} flex items-center justify-center text-2xl shadow-lg`}>
@@ -131,7 +140,7 @@ const Events = () => {
               예약하기
             </h3>
             
-            <form onSubmit={handleSubmit} className="bg-light-bg dark:bg-dark-bg rounded-2xl p-8 shadow-lg">
+            <form onSubmit={handleSubmit} className="bg-gradient-to-br from-light-bg-secondary/30 to-light-bg/80 dark:from-dark-bg-secondary/30 dark:to-dark-bg/80 rounded-2xl p-8 shadow-xl border border-light-primary/20 dark:border-dark-primary/20 backdrop-blur-sm">
               <div className="space-y-6">
                 <div>
                   <label className="block text-light-text dark:text-dark-text font-medium mb-2">
@@ -199,14 +208,19 @@ const Events = () => {
                     <label className="block text-light-text dark:text-dark-text font-medium mb-2">
                       날짜
                     </label>
-                    <input
-                      type="date"
-                      name="date"
-                      value={formData.date}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-light-bg-secondary dark:bg-dark-bg-secondary text-light-text dark:text-dark-text rounded-lg border border-light-secondary/30 dark:border-dark-secondary/30 focus:border-light-primary dark:focus:border-dark-primary focus:outline-none transition-colors"
-                      required
-                    />
+                    <div className="relative">
+                      <DatePicker
+                        selected={formData.date}
+                        onChange={handleDateChange}
+                        dateFormat="yyyy-MM-dd"
+                        minDate={new Date()}
+                        placeholderText="날짜를 선택하세요"
+                        className="w-full px-4 py-3 bg-light-bg-secondary dark:bg-dark-bg-secondary text-light-text dark:text-dark-text rounded-lg border border-light-secondary/30 dark:border-dark-secondary/30 focus:border-light-primary dark:focus:border-dark-primary focus:outline-none transition-colors"
+                        wrapperClassName="w-full"
+                        calendarClassName="bg-white dark:bg-gray-800 border border-light-secondary/30 dark:border-dark-secondary/30 rounded-lg shadow-lg"
+                        required
+                      />
+                    </div>
                   </div>
 
                   <div>
@@ -232,7 +246,7 @@ const Events = () => {
 
                 <button
                   type="submit"
-                  className="w-full px-8 py-4 bg-light-primary dark:bg-dark-primary text-white font-semibold rounded-full hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                  className="w-full px-8 py-4 bg-gradient-to-r from-light-primary to-light-secondary dark:from-dark-primary dark:to-dark-secondary text-white font-semibold rounded-full hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
                 >
                   예약 요청하기
                 </button>

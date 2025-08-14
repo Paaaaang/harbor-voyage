@@ -9,13 +9,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Light mode colors (Day)
+        // Light mode colors (Day) - 따뜻한 햇살 느낌
         light: {
-          bg: '#FDFCF7',
-          'bg-secondary': '#B5EAEA',
-          text: '#3E3E3E',
-          primary: '#A3B18A',
-          secondary: '#E9D8A6',
+          bg: '#FFFEF9',
+          'bg-secondary': '#FFF4E6',
+          text: '#4A4A4A',
+          primary: '#E07A5F',      // 따뜻한 코랄/오렌지
+          secondary: '#F2CC8F',    // 따뜻한 골든 옐로우
         },
         // Dark mode colors (Night)
         dark: {
@@ -28,8 +28,9 @@ module.exports = {
         }
       },
       fontFamily: {
-        'serif': ['Playfair Display', 'serif'],
+        'serif': ['Playfair Display', 'Noto Serif KR', 'serif'],
         'sans': ['Pretendard', 'Noto Sans KR', 'sans-serif'],
+        'display': ['Playfair Display', 'Poppins', 'Noto Sans KR', 'sans-serif'],
       },
       fontSize: {
         'hero-desktop': ['56px', '1.1'],

@@ -1,11 +1,11 @@
-'use client'
+"use client";
 
-import React from 'react'
-import { motion } from 'framer-motion'
-import { useTheme } from '@/components/ThemeProvider'
+import React from "react";
+import { motion } from "framer-motion";
+import { useTheme } from "@/components/ThemeProvider";
 
 const About = () => {
-  const { theme } = useTheme()
+  const { theme } = useTheme();
 
   return (
     <section id="about" className="py-20 px-4">
@@ -25,7 +25,7 @@ const About = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Story Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -35,17 +35,16 @@ const About = () => {
           >
             <div className="prose prose-lg max-w-none">
               <h3 className="font-serif text-2xl font-semibold text-light-text dark:text-dark-text mb-4">
-                {theme === 'light' ? '낮 - 항구의 시작' : '밤 - 모험의 끝'}
+                {theme === "light" ? "낮 - 항구의 시작" : "밤 - 모험의 끝"}
               </h3>
               <p className="text-light-text/80 dark:text-dark-text/80 mb-6 leading-relaxed">
-                {theme === 'light' 
-                  ? '새벽 안개가 걷히고 첫 햇살이 부두를 비출 때, 선원들은 하나둘 모여들기 시작합니다. 갓 내린 커피 한 잔과 함께 오늘의 항해를 준비하며, 바다가 들려주는 이야기에 귀를 기울입니다.'
-                  : '긴 하루의 항해를 마치고 돌아온 선원들이 모여앉습니다. 달빛이 바다를 은빛으로 물들이는 이 시간, 각자의 모험담을 나누며 내일의 새로운 여행을 꿈꿉니다.'
-                }
+                {theme === "light"
+                  ? "새벽 안개가 걷히고 첫 햇살이 부두를 비출 때, 선원들은 하나둘 모여들기 시작합니다. 갓 내린 커피 한 잔과 함께 오늘의 항해를 준비하며, 바다가 들려주는 이야기에 귀를 기울입니다."
+                  : "긴 하루의 항해를 마치고 돌아온 선원들이 모여앉습니다. 달빛이 바다를 은빛으로 물들이는 이 시간, 각자의 모험담을 나누며 내일의 새로운 여행을 꿈꿉니다."}
               </p>
               <p className="text-light-text/80 dark:text-dark-text/80 leading-relaxed">
-                Harbor & Voyage는 단순한 카페나 펍이 아닙니다. 
-                시간의 흐름과 함께 변화하는 공간, 당신의 하루에 특별한 순간을 선사하는 곳입니다.
+                SPARROW는 단순한 카페나 펍이 아닙니다. 시간의 흐름과 함께
+                변화하는 공간, 당신의 하루에 특별한 순간을 선사하는 곳입니다.
               </p>
             </div>
           </motion.div>
@@ -58,21 +57,20 @@ const About = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-light-secondary to-light-primary dark:from-dark-secondary dark:to-dark-primary p-8 flex items-center justify-center">
+            <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-light-secondary to-light-primary dark:from-gray-900 dark:to-gray-800 p-8 flex items-center justify-center">
               <div className="text-center">
                 <div className="w-24 h-24 mx-auto mb-6 bg-white/20 rounded-full flex items-center justify-center">
                   <span className="text-4xl">
-                    {theme === 'light' ? '☀️' : '🌙'}
+                    {theme === "light" ? "☀️" : "🌙"}
                   </span>
                 </div>
                 <h4 className="font-serif text-xl font-semibold text-white mb-2">
-                  {theme === 'light' ? 'Day Mode' : 'Night Mode'}
+                  {theme === "light" ? "Day Mode" : "Night Mode"}
                 </h4>
                 <p className="text-white/90 text-sm">
-                  {theme === 'light' 
-                    ? '06:00 - 18:00\n브런치 & 커피' 
-                    : '18:00 - 02:00\n칵테일 & 디너'
-                  }
+                  {theme === "light"
+                    ? "06:00 - 18:00\n브런치 & 커피"
+                    : "18:00 - 02:00\n칵테일 & 디너"}
                 </p>
               </div>
             </div>
@@ -125,7 +123,7 @@ const About = () => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default About
+export default About;
