@@ -2,10 +2,10 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
+import { useTheme } from '@/components/ThemeProvider'
 
 const About = () => {
-  // 임시로 하드코딩
-  const theme = 'light'
+  const { theme } = useTheme()
 
   return (
     <section id="about" className="py-20 px-4">

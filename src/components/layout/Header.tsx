@@ -1,37 +1,37 @@
-'use client'
+"use client";
 
-import React, { useState, useEffect } from 'react'
-import { Sun, Moon, Menu, X } from 'lucide-react'
-import { useTheme } from '@/components/ThemeProvider'
+import React, { useState, useEffect } from "react";
+import { Sun, Moon, Menu, X } from "lucide-react";
+import { useTheme } from "@/components/ThemeProvider";
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-  const { theme, toggleTheme } = useTheme()
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navItems = [
-    { name: 'Home', href: '#hero' },
-    { name: 'About', href: '#about' },
-    { name: 'Menu', href: '#menu' },
-    { name: 'Events', href: '#events' },
-    { name: 'Gallery', href: '#gallery' },
-    { name: 'Contact', href: '#contact' },
-  ]
+    { name: "Home", href: "#hero" },
+    { name: "About", href: "#about" },
+    { name: "Menu", href: "#menu" },
+    { name: "Events", href: "#events" },
+    { name: "Gallery", href: "#gallery" },
+    { name: "Contact", href: "#contact" },
+  ];
 
   return (
-    <header 
+    <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-light-bg/90 dark:bg-dark-bg/90 backdrop-blur-md shadow-lg' 
-          : 'bg-transparent'
+        isScrolled
+          ? "bg-light-bg/90 dark:bg-dark-bg/90 backdrop-blur-md shadow-lg"
+          : "bg-transparent"
       }`}
     >
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -45,7 +45,9 @@ const Header = () => {
               Harbor & Voyage
             </h1>
             <p className="text-xs text-light-text/70 dark:text-dark-text/70">
-              {theme === 'light' ? '바다를 향한 하루의 준비' : '달빛 아래 펼쳐지는 모험'}
+              {theme === "light"
+                ? "바다를 향한 하루의 준비"
+                : "달빛 아래 펼쳐지는 모험"}
             </p>
           </div>
         </div>
@@ -70,7 +72,7 @@ const Header = () => {
             className="p-2 rounded-full bg-light-secondary/20 dark:bg-dark-secondary/20 hover:bg-light-secondary/40 dark:hover:bg-dark-secondary/40 transition-all duration-300"
             aria-label="테마 변경"
           >
-            {theme === 'light' ? (
+            {theme === "light" ? (
               <Moon className="w-5 h-5 text-light-text dark:text-dark-text" />
             ) : (
               <Sun className="w-5 h-5 text-light-text dark:text-dark-text" />
@@ -109,7 +111,7 @@ const Header = () => {
         </div>
       )}
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
