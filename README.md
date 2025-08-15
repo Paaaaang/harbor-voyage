@@ -69,8 +69,8 @@ SPARROW는 낮에는 편안한 휴식의 카페, 밤에는 몰입감 있는 사�
 1. 저장소 클론
 
 ```bash
-git clone https://github.com/Paaaaang/harbor-voyage.git
-cd harbor-voyage
+git clone https://github.com/Paaaaang/SPARROW.git
+cd SPARROW
 ```
 
 2. 의존성 설치
@@ -107,7 +107,7 @@ npm run deploy
 ## 📁 프로젝트 구조
 
 ```
-harbor-voyage/
+SPARROW/
 ├── src/
 │   ├── app/
 │   │   ├── globals.css          # 글로벌 스타일 + DatePicker 커스텀
@@ -248,7 +248,7 @@ colors: {
 
 - **이메일**: hello@sparrow.kr
 - **웹사이트**: [https://sparrow-cafe.surge.sh](https://sparrow-cafe.surge.sh)
-- **GitHub**: [https://github.com/Paaaaang/harbor-voyage](https://github.com/Paaaaang/harbor-voyage)
+- **GitHub**: [https://github.com/Paaaaang/SPARROW](https://github.com/Paaaaang/SPARROW)
 
 ## 📄 라이선스
 
