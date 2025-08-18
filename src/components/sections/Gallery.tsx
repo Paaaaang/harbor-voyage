@@ -94,7 +94,7 @@ const Gallery = () => {
                 />
 
                 {/* Content Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 rounded-b-xl">
                   <h3 className="font-serif text-lg font-semibold text-white mb-1">
                     {image.alt}
                   </h3>
@@ -138,7 +138,7 @@ const Gallery = () => {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
 
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 rounded-b-xl">
                   <h3 className="font-serif text-lg font-semibold text-white mb-1">
                     {privateRoomImage.alt}
                   </h3>
@@ -172,7 +172,7 @@ const Gallery = () => {
                   alt="SPARROW 갤러리 공간"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-xl">
                   <div className="absolute bottom-4 left-4 text-white">
                     <span className="text-sm font-medium bg-light-primary/80 dark:bg-dark-primary/80 px-3 py-1 rounded-full">
                       Gallery Space

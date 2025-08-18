@@ -73,7 +73,7 @@ const About = () => {
               )}
 
               {/* Overlay with info */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end rounded-xl">
                 <div className="p-6 text-white">
                   <h4 className="font-serif text-xl font-semibold mb-2">
                     {theme === "light" ? "Day Experience" : "Night Experience"}
