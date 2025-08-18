@@ -28,9 +28,9 @@ module.exports = {
         },
       },
       fontFamily: {
-        serif: ["Playfair Display", "Noto Serif KR", "serif"],
-        sans: ["Pretendard", "Noto Sans KR", "sans-serif"],
-        display: ["Playfair Display", "Poppins", "Noto Sans KR", "sans-serif"],
+        serif: ["Crimson Pro", "Noto Serif KR", "Georgia", "serif"],
+        sans: ["Inter", "Noto Sans KR", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+        display: ["Crimson Pro", "Georgia", "serif"],
       },
       fontSize: {
         "hero-desktop": ["56px", "1.1"],

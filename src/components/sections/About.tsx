@@ -17,7 +17,7 @@ const About = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-light-text dark:text-dark-text mb-6">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-light-text dark:text-dark-text mb-6 tracking-wide">
             Our Story
           </h2>
           <p className="text-lg text-light-text/80 dark:text-dark-text/80 max-w-3xl mx-auto">
@@ -57,21 +57,33 @@ const About = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-light-secondary to-light-primary dark:from-gray-900 dark:to-gray-800 p-8 flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-24 h-24 mx-auto mb-6 bg-white/20 rounded-full flex items-center justify-center">
-                  <span className="text-4xl">
-                    {theme === "light" ? "☀️" : "🌙"}
-                  </span>
+            <div className="aspect-square rounded-xl overflow-hidden shadow-lg">
+              {theme === "light" ? (
+                <img
+                  src="/images/(About)SPARROW_낮.png"
+                  alt="SPARROW 낮 분위기"
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <img
+                  src="/images/(About)SPARROW_밤.png"
+                  alt="SPARROW 밤 분위기"
+                  className="w-full h-full object-cover"
+                />
+              )}
+
+              {/* Overlay with info */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end">
+                <div className="p-6 text-white">
+                  <h4 className="font-serif text-xl font-semibold mb-2">
+                    {theme === "light" ? "Day Experience" : "Night Experience"}
+                  </h4>
+                  <p className="text-white/90 text-sm">
+                    {theme === "light"
+                      ? "06:00 - 18:00\n브런치 & 커피"
+                      : "18:00 - 02:00\n칵테일 & 디너"}
+                  </p>
                 </div>
-                <h4 className="font-serif text-xl font-semibold text-white mb-2">
-                  {theme === "light" ? "Day Mode" : "Night Mode"}
-                </h4>
-                <p className="text-white/90 text-sm">
-                  {theme === "light"
-                    ? "06:00 - 18:00\n브런치 & 커피"
-                    : "18:00 - 02:00\n칵테일 & 디너"}
-                </p>
               </div>
             </div>
           </motion.div>

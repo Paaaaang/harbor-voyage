@@ -121,8 +121,8 @@ const Menu = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-light-text dark:text-dark-text mb-6">
-            Menu
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-light-text dark:text-dark-text mb-6 tracking-wide">
+            Our Menu
           </h2>
           <p className="text-lg text-light-text/80 dark:text-dark-text/80 max-w-3xl mx-auto">
             시간에 따라 변화하는 특별한 메뉴를 경험해보세요

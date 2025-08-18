@@ -1,13 +1,26 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Anchor, Compass } from "lucide-react";
 
 import { useTheme } from "@/components/ThemeProvider";
+import ComingSoonModal from "@/components/ComingSoonModal";
 
 const Hero = () => {
   const { theme } = useTheme();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleBrunchReservation = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleViewMenu = () => {
+    const menuSection = document.getElementById("menu");
+    if (menuSection) {
+      menuSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <section
@@ -143,7 +156,7 @@ const Hero = () => {
             SPARROW
           </h1>
 
-          <p className="text-lg md:text-xl text-light-text/80 dark:text-dark-text/80 mb-8 leading-relaxed font-light">
+          <p className="text-lg md:text-xl text-light-text/80 dark:text-dark-text/80 mb-8 leading-relaxed font-normal">
             바다를 향한 하루의 준비, 선원들이 모여 커피를 마시며 오늘의 항해를
             준비하는 항구 카페
           </p>
@@ -154,11 +167,17 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1 }}
           >
-            <button className="px-8 py-4 bg-light-primary/75 dark:bg-dark-primary/75 text-white font-medium rounded-full hover:bg-light-primary dark:hover:bg-dark-primary transition-all duration-300 transform hover:scale-105 shadow-lg cursor-none">
+            <button
+              onClick={handleBrunchReservation}
+              className="px-8 py-4 bg-light-primary/75 dark:bg-dark-primary/75 text-white font-medium rounded-full hover:bg-light-primary dark:hover:bg-dark-primary transition-all duration-300 transform hover:scale-105 shadow-lg cursor-none"
+            >
               브런치 예약하기
             </button>
 
-            <button className="px-8 py-4 border-2 border-light-primary dark:border-dark-primary text-light-primary dark:text-dark-primary font-medium rounded-full hover:bg-light-primary hover:text-white dark:hover:bg-dark-primary dark:hover:text-dark-bg transition-all duration-300 cursor-none">
+            <button
+              onClick={handleViewMenu}
+              className="px-8 py-4 border-2 border-light-primary dark:border-dark-primary text-light-primary dark:text-dark-primary font-medium rounded-full hover:bg-light-primary hover:text-white dark:hover:bg-dark-primary dark:hover:text-dark-bg transition-all duration-300 cursor-none"
+            >
               메뉴 보기
             </button>
           </motion.div>
@@ -171,10 +190,48 @@ const Hero = () => {
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       >
-        <div className="w-6 h-10 border-2 border-light-primary dark:border-dark-primary rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-light-primary dark:bg-dark-primary rounded-full mt-2"></div>
-        </div>
+        <motion.button
+          onClick={() => {
+            const aboutSection = document.getElementById('about');
+            aboutSection?.scrollIntoView({ 
+              behavior: 'smooth',
+              block: 'start' 
+            });
+          }}
+          className="w-6 h-10 border-2 border-light-primary dark:border-dark-primary rounded-full flex justify-center cursor-none focus:outline-none transition-all duration-300 relative"
+          whileHover={{ 
+            scale: 1.1,
+            borderColor: "#F2CC8F" // light-secondary color
+          }}
+          whileTap={{ scale: 0.95 }}
+          aria-label="About 섹션으로 스크롤"
+        >
+          {/* Pulse effect on hover */}
+          <motion.div
+            className="absolute inset-0 border-2 border-light-primary/30 dark:border-dark-primary/30 rounded-full"
+            initial={{ scale: 1, opacity: 0 }}
+            whileHover={{
+              scale: 1.5,
+              opacity: [0, 0.5, 0],
+            }}
+            transition={{ duration: 1, repeat: Infinity }}
+          />
+          
+          <motion.div 
+            className="w-1 h-3 bg-light-primary dark:bg-dark-primary rounded-full mt-2 relative z-10"
+            whileHover={{
+              backgroundColor: "#F2CC8F" // light-secondary color
+            }}
+            transition={{ duration: 0.3 }}
+          />
+        </motion.button>
       </motion.div>
+
+      {/* Coming Soon Modal */}
+      <ComingSoonModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </section>
   );
 };

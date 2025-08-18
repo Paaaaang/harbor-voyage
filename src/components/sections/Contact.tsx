@@ -36,8 +36,8 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-light-text dark:text-dark-text mb-6">
-            Contact & Location
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-light-text dark:text-dark-text mb-6 tracking-wide">
+            Visit Us
           </h2>
           <p className="text-lg text-light-text/80 dark:text-dark-text/80 max-w-3xl mx-auto">
             SPARROW로 오시는 길과 연락처 정보
@@ -198,29 +198,7 @@ const Contact = () => {
           </motion.div>
         </div>
 
-        {/* Final CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mt-16 bg-light-bg-secondary/30 dark:bg-dark-bg-secondary/30 rounded-2xl p-8"
-        >
-          <h3 className="font-serif text-2xl font-semibold text-light-text dark:text-dark-text mb-4">
-            SPARROW에서 특별한 시간을 만나보세요
-          </h3>
-          <p className="text-light-text/80 dark:text-dark-text/80 mb-6">
-            시간에 따라 변화하는 공간에서 새로운 경험이 기다리고 있습니다
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-light-primary dark:bg-dark-primary text-white font-semibold rounded-full hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg">
-              지금 예약하기
-            </button>
-            <button className="px-8 py-4 border-2 border-light-primary dark:border-dark-primary text-light-primary dark:text-dark-primary font-semibold rounded-full hover:bg-light-primary hover:text-white dark:hover:bg-dark-primary dark:hover:text-dark-bg transition-all duration-300">
-              문의하기
-            </button>
-          </div>
-        </motion.div>
+
       </div>
     </section>
   );

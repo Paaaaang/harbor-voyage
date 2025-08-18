@@ -73,7 +73,7 @@ const Header = () => {
             <h1 className="text-xl font-black text-light-text dark:text-dark-text tracking-wider uppercase font-display">
               SPARROW
             </h1>
-            <p className="text-xs text-light-text/70 dark:text-dark-text/70 font-light">
+            <p className="text-xs text-light-text/70 dark:text-dark-text/70 font-normal">
               {theme === "light"
                 ? "바다를 향한 하루의 준비"
                 : "달빛 아래 펼쳐지는 모험"}
