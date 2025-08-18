@@ -15,14 +15,14 @@ const KakaoMap = () => {
     const loadKakaoMap = () => {
       if (window.kakao && window.kakao.maps) {
         const options = {
-          center: new window.kakao.maps.LatLng(37.5665, 126.978), // 서울시 중구 을지로 100번지 좌표
+          center: new window.kakao.maps.LatLng(37.5665, 126.9784), // 서울특별시 중구 을지로 100번지 정확한 좌표
           level: 3,
         };
 
         const map = new window.kakao.maps.Map(mapContainer.current, options);
 
         // 마커 생성
-        const markerPosition = new window.kakao.maps.LatLng(37.5665, 126.978);
+        const markerPosition = new window.kakao.maps.LatLng(37.5665, 126.9784);
         const marker = new window.kakao.maps.Marker({
           position: markerPosition,
         });
@@ -32,10 +32,13 @@ const KakaoMap = () => {
         // 인포윈도우 생성
         const infowindow = new window.kakao.maps.InfoWindow({
           content: `
-            <div style="padding:10px;font-size:12px;text-align:center;min-width:150px;">
-              <strong>SPARROW</strong><br/>
-              서울특별시 중구 을지로 100번지<br/>
-              <small>낮 06:00-18:00 | 밤 18:00-02:00</small>
+            <div style="padding:12px;font-size:13px;text-align:center;min-width:180px;font-family:'Inter', sans-serif;">
+              <div style="font-weight:bold;font-size:15px;color:#E07A5F;margin-bottom:4px;">SPARROW</div>
+              <div style="color:#333;margin-bottom:6px;">서울특별시 중구 을지로 100번지</div>
+              <div style="font-size:11px;color:#666;line-height:1.3;">
+                <div>☀️ Day: 06:00 - 18:00 (카페)</div>
+                <div>🌙 Night: 18:00 - 02:00 (펍)</div>
+              </div>
             </div>
           `,
         });
